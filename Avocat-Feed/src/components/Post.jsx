@@ -17,10 +17,19 @@ export function Post(props) {
                     <p> Fala galera! :) </p>
                     <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz com as aulas da Rocketseat</p>
                     <p><a href='#'>Luana.Pereira/avocatfeed</a></p>
-                    
+
                 </div>
+
+
+                <form className={styles.commentForm}>
+                    <strong> Deixe seu feedback </strong>
+                    <textarea
+                        placeholder='Deixe seu comentário'
+                    />
+                    <button type='submit'>Comentar</button>
+                </form>
             </article>
-        
+
         </>
     )
 }
