@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Header } from './components/Header';
 import styles from "./App.module.css";
 import "./global.css";
+import { Header } from './components/Header';
 import { Post } from './components/Post'
 import { Sidebar } from './components/Sidebar';
 
-function App() {
 
+function App() {
 
   return (
     <>
