@@ -9,10 +9,11 @@ import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
 
-const [comments, setComments] = useState([
-    1,
-    2,
-])
+    const [comments, setComments] = useState([
+        'Parabéns pelo post'
+    ])
+
+    const [newCommentText, setNewCommentText] = useState('')
 
     const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR,
@@ -23,10 +24,16 @@ const [comments, setComments] = useState([
         addSuffix: true,
     })
 
-function handleCreateNewComment() {
-    event.preventDefault()
-    setComments([...comments, comments.length + 1])
-}
+    function handleCreateNewComment() {
+        event.preventDefault()
+
+        setComments([...comments, newCommentText]);
+        setNewCommentText('');
+    }
+
+    function handleNewCommentChange() {
+        setNewCommentText(event.target.value)
+    }
 
     return (
         <>
@@ -57,15 +64,18 @@ function handleCreateNewComment() {
                 <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                     <strong> Deixe seu feedback </strong>
                     <textarea
+                        name='comment'
                         placeholder='Deixe seu comentário'
+                        onChange={handleNewCommentChange}
+                        value={newCommentText}
                     />
                     <footer>
                         <button type='submit'> Publicar </button>
                     </footer>
                 </form>
                 <div className={styles.commentList}>
-                    {comments.map(commment => {
-                        return <Comment />
+                    {comments.map(comment => {
+                        return <Comment content={comment} />
                     })}
                 </div>
             </article>
