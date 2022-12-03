@@ -1,29 +1,60 @@
 import { Avatar } from './Avatar';
 import { Comment } from './comment';
 import styles from './Post.module.css';
-export function Post(props) {
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
+import { useState } from 'react';
+
+
+
+export function Post({ author, publishedAt, content }) {
+
+const [comments, setComments] = useState([
+    1,
+    2,
+])
+
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale: ptBR,
+    })
+
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true,
+    })
+
+function handleCreateNewComment() {
+    event.preventDefault()
+    setComments([...comments, comments.length + 1])
+}
+
     return (
         <>
             <article className={styles.post}>
                 <header>
                     <div className={styles.author}>
-                        <Avatar src="https://github.com/luaanaapereiraa.png" />
+                        <Avatar src={author.avatarUrl} />
                         <div className={styles.authorInfo}>
-                            <strong> Luana Pereira </strong>
-                            <span> Software Developer </span>
+                            <strong> {author.name} </strong>
+                            <span> {author.role} </span>
                         </div>
                     </div>
-                    <time title='22 de novembro de 2022' dateTime='2022-11-22 00:20:42'> Publicado há 1h </time>
+                    <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+                        {publishedDateRelativeToNow}
+                    </time>
                 </header>
                 <div className={styles.content}>
-                    <p> Fala galera! :) </p>
-                    <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz com as aulas da Rocketseat</p>
-                    <p><a href='#'>Luana.Pereira/avocatfeed</a></p>
-
+                    {content.map(line => {
+                        if (line.type === 'paragraph') {
+                            return <p>{line.content}</p>;
+                        } else if (line.type === 'link') {
+                            return <p><a href="#">{line.content}</a></p>;
+                        }
+                    })}
                 </div>
 
 
-                <form className={styles.commentForm}>
+                <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                     <strong> Deixe seu feedback </strong>
                     <textarea
                         placeholder='Deixe seu comentário'
@@ -33,10 +64,9 @@ export function Post(props) {
                     </footer>
                 </form>
                 <div className={styles.commentList}>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
+                    {comments.map(commment => {
+                        return <Comment />
+                    })}
                 </div>
             </article>
 
