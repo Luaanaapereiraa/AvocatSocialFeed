@@ -29,8 +29,8 @@ const posts = [
     role: 'Designer'
   },
   content: [
-    { type: 'paragraph', content: 'Fala galera! :)'},
-    { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz com as aulas da Rocketseat'},
+    { type: 'paragraph', content: 'Oi, pessoal! :)'},
+    { type: 'paragraph', content: 'Tenho um projeto novo.'},
     {type:'link', content: 'Luana.Pereira/avocatfeed'},
   ],
   publishedAt: new Date('2022-11-23 21:20:20'),
