@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styles from "./App.module.css";
 import "./global.css";
-import { Header } from './components/Header';
-import { Post } from './components/Post'
-import { Sidebar } from './components/Sidebar';
+import { Header } from './components/Header/Header';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { Post } from './components/Post/Post';
 
 
 const posts = [
@@ -16,7 +16,7 @@ const posts = [
   },
   content: [
     { type: 'paragraph', content: 'Fala galera! :)'},
-    { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz com as aulas da Rocketseat'},
+    { type: 'paragraph', content: 'Neste projeto, estou adicionando novas funcionalidades para demonstrar minhas habilidades. Agora você tem a opção de fazer comentários, curtir e apagar.'},
     {type:'link', content: 'Luana.Pereira/avocatfeed'},
   ],
   publishedAt: new Date('2022-11-22 20:00:20'),
@@ -30,7 +30,7 @@ const posts = [
   },
   content: [
     { type: 'paragraph', content: 'Oi, pessoal! :)'},
-    { type: 'paragraph', content: 'Tenho um projeto novo.'},
+    { type: 'paragraph', content: 'Tenho um projeto.'},
     {type:'link', content: 'Luana.Pereira/avocatfeed'},
   ],
   publishedAt: new Date('2022-11-23 21:20:20'),

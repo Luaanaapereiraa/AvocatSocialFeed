@@ -1,5 +1,5 @@
-import { Avatar } from './Avatar';
-import { Comment } from './comment';
+import { Avatar } from '../Avatar/Avatar';
+import { Comment } from '../Comment/Comment';
 import styles from './Post.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR'
