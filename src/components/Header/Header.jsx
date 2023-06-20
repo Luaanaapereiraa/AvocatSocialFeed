@@ -1,6 +1,5 @@
 import styles from './Header.module.css';
-import avocatLogo from '../../assets/avocat-logo-sem-fundo.png';
-
+import avocatLogo from '../../assets/Avocat-logo-sem-fundo.png';
 export function Header() {
     return ( 
         <> 
