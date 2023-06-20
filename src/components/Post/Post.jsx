@@ -10,7 +10,7 @@ export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState([
     {
       content: 'Os comentários tem horário de postagem individual',
-      dateTime: '2023-06-19T10:30:00.000Z' 
+      dateTime: '2023-06-19T10:30:00.000Z'
     }
   ]);
   const [newCommentText, setNewCommentText] = useState('');
@@ -47,7 +47,7 @@ export function Post({ author, publishedAt, content }) {
 
   function deleteComment(commentToDelete) {
     const commentWithoutDeleteOne = comments.filter(comment => {
-      return comment !== commentToDelete;
+      return new Date(comment.dateTime).getTime() !== new Date(commentToDelete.dateTime).getTime();
     });
 
     setComments(commentWithoutDeleteOne);
@@ -104,7 +104,8 @@ export function Post({ author, publishedAt, content }) {
                 key={comment.dateTime}
                 content={comment.content}
                 dateTime={comment.dateTime}
-                onDeleteComment={deleteComment}
+                onDeleteComment={() =>
+                  deleteComment(comment)}
               />
             );
           })}
