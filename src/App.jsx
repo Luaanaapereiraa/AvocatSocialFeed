@@ -17,7 +17,6 @@ const posts = [
   content: [
     { type: 'paragraph', content: 'Fala galera! :)'},
     { type: 'paragraph', content: 'Neste projeto, estou adicionando novas funcionalidades para demonstrar minhas habilidades. Agora você tem a opção de fazer comentários, curtir e apagar.'},
-    {type:'link', content: 'Luana.Pereira/avocatfeed'},
   ],
   publishedAt: new Date('2022-11-22 20:00:20'),
 },
@@ -31,7 +30,6 @@ const posts = [
   content: [
     { type: 'paragraph', content: 'Oi, pessoal! :)'},
     { type: 'paragraph', content: 'Nesse projeto, além de visualizar a versão web, também é possivel vizualisar a versão responsiva do aplicativo em diferentes dispositivos e tamanhos de tela.'},
-    {type:'link', content: 'Luana.Pereira/avocatfeed'},
   ],
   publishedAt: new Date('2022-11-23 21:20:20'),
 }
