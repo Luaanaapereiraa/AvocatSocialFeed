@@ -6,7 +6,7 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import { Post } from './components/Post/Post';
 
 
-const posts = [
+const posts = [           
   {
   id: 1,
   author: {
